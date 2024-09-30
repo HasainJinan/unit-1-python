@@ -1,7 +1,6 @@
 #ToDo List Starter Phrase.
 with open("Projects/todo.txt") as file:
     contents = file.readlines()
-
 print("")
 print("")
 print("")
@@ -67,6 +66,7 @@ while 1:
         print("~~~~~~~~~~")
         print("--------------------------------------------")
         print("")
+        #Saves contents of todo to file.
         with open("Projects/todo.txt", "w") as save:
             save.writelines(contents)
         break
