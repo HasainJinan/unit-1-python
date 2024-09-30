@@ -1,5 +1,7 @@
 #ToDo List Starter Phrase.
-td_list = []
+with open("Projects/todo.txt") as file:
+    contents = file.readlines()
+
 print("")
 print("")
 print("")
@@ -16,7 +18,7 @@ while 1:
     print("")
     #For loop cycles through list contents to add a number next to them and list them vertically.
     num = 0
-    for x in td_list:
+    for x in contents:
         num = num + 1
         print(str(num) + ") " + str(x))
     print("~~~~~~~~~~")
@@ -38,7 +40,7 @@ while 1:
         print("~~~~~~~~~~")
         add = str(input("Enter: "))
         print("~~~~~~~~~~")
-        td_list.append(add)
+        contents.append(add + "\n")
         print("")
         print("Added.")
         print("~~~~~~~~~~")
@@ -51,12 +53,23 @@ while 1:
         print("~~~~~~~~~~")
         remove = int(input("Enter Number: "))
         print("~~~~~~~~~~")
-        del td_list[remove - 1]
+        del contents[remove - 1]
         print("")
         print("Removed.")
         print("~~~~~~~~~~")
         print("--------------------------------------------")
         print("")
+
+        #Exits the program.
+    elif choice.lower() == "exit":
+        print("")
+        print("Exiting program.")
+        print("~~~~~~~~~~")
+        print("--------------------------------------------")
+        print("")
+        with open("Projects/todo.txt", "w") as save:
+            save.writelines(contents)
+        break
 
         #If error encountered.
     else:
