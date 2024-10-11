@@ -12,10 +12,12 @@ Then create a subclass called "Player" that has more health.
 class Character:
     health = 30
 
+    #Initialize name and damage.
     def __init__(self, name, damage):
         self.name = name
         self.damage = damage
 
+    #Universal damage method.
     def dmg(self, dmg):
         self.health = self.health - dmg
 
@@ -31,11 +33,12 @@ class Player(Character):
         
 #Enemy 1.
 enemy1 = Character("Gnawer", 10)
-enemy1.dmg(10)
-print("Enemy Health: " + str(enemy1.health))
-
 #Player 1.
 player1 = Player("MC", 10)
+
+#Battlefield.
+enemy1.dmg(player1.damage)
+print("Enemy Health: " + str(enemy1.health))
 player1.dmg(enemy1.damage)
 player1.dmg(enemy1.damage)
 print("Health: " + str(player1.health))
@@ -133,13 +136,15 @@ class BankAccount:
         self.balance = balance
         self.owner = owner
 
+    #Deposit method.
     def deposit(self, dep):
         self.balance = self.balance + dep
 
+    #Withdraw method.
     def withdraw(self, withdraw):
         self.balance = self.balance - withdraw
 
-#Bank account 3.
+#Bank account 1.
 account_1 = BankAccount(0, "John")
 account_1.deposit(40)
 print("Balance after deposit: " + str(account_1.balance))
